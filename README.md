@@ -1,16 +1,38 @@
-# task_manager_app
+This is a Flutter Todo application built using Riverpod (MVVM architecture) with Node.js backend integration.
+The app includes authentication (Login, Register, Forgot Password) and JWT-based secure Todo CRUD operations.
 
-A new Flutter project.
+It uses Dio for REST API communication, Hive for local storage, GoRouter for navigation, and follows a modern classic UI design with proper loading states and error handling.
 
-## Getting Started
+🚀 Key Features
 
-This project is a starting point for a Flutter application.
+Login, Register & Forgot Password flow
 
-A few resources to get you started if this is your first Flutter project:
+JWT Token-based authentication
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Secure Todo Create, Read & Delete
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Automatic token handling using Dio interceptors
+
+Local storage using Hive
+
+State management with Riverpod (MVVM)
+
+GoRouter navigation with auth guard
+
+Modern & clean UI design
+
+Loading indicators and smooth UX
+
+🛠 Tech Stack
+
+Flutter
+
+Riverpod
+
+Dio (+ Pretty Dio Logger)
+
+Hive
+
+GoRouter
+
+MVVM Architecture
