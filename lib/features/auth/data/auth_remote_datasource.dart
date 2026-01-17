@@ -6,10 +6,10 @@ class AuthRemoteDataSource {
   AuthRemoteDataSource(this.dio);
 
   Future<Response> login(String email, String password) {
-    return dio.post(ApiConstants.login, data: {
-      'email': email,
-      'password': password,
-    });
+    return dio.post(
+      ApiConstants.login,
+      data: {'email': email, 'password': password},
+    );
   }
 
   Future<Response> register(Map<String, dynamic> data) {
@@ -17,11 +17,17 @@ class AuthRemoteDataSource {
   }
 
   Future<Response> forgetPassword(
-      String email, String currentPassword, String newPassword) {
-    return dio.put(ApiConstants.forgetPassword, data: {
-      'email': email,
-      'currentPassword': currentPassword,
-      'newPassword': newPassword,
-    });
+    String email,
+    String currentPassword,
+    String newPassword,
+  ) {
+    return dio.put(
+      ApiConstants.forgetPassword,
+      data: {
+        'email': email,
+        'currentPassword': currentPassword,
+        'newPassword': newPassword,
+      },
+    );
   }
 }

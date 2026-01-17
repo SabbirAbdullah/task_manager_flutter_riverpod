@@ -3,10 +3,6 @@ import 'auth_remote_datasource.dart';
 import '../../../../core/storage/hive_service.dart';
 
 
-import '../model/user_model.dart';
-import 'auth_remote_datasource.dart';
-import '../../../../core/storage/hive_service.dart';
-
 class AuthRepository {
   final AuthRemoteDataSource remote;
   AuthRepository(this.remote);
@@ -33,7 +29,10 @@ class AuthRepository {
 
   // ✅ Forget Password
   Future<void> forgetPassword(
-      String email, String currentPassword, String newPassword) async {
+    String email,
+    String currentPassword,
+    String newPassword,
+  ) async {
     await remote.forgetPassword(email, currentPassword, newPassword);
   }
 

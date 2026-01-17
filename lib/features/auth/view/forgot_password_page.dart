@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../viewmodel/auth_viewmodel.dart';
 import 'package:go_router/go_router.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../auth/viewmodel/auth_viewmodel.dart';
-import 'package:go_router/go_router.dart';
+
 
 class ForgotPasswordPage extends ConsumerWidget {
   ForgotPasswordPage({super.key});
@@ -29,28 +26,37 @@ class ForgotPasswordPage extends ConsumerWidget {
         child: SingleChildScrollView(
           child: Card(
             elevation: 6,
-            shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
             margin: const EdgeInsets.all(24),
             child: Padding(
-              padding:
-              const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
+              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   const Text(
                     'Reset Password',
                     style: TextStyle(
-                        fontSize: 28,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.blueAccent),
+                      fontSize: 28,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blueAccent,
+                    ),
                   ),
                   const SizedBox(height: 24),
                   _field(emailCtrl, 'Email', prefix: Icons.email),
-                  _field(currentPassCtrl, 'Current Password',
-                      obscure: true, prefix: Icons.lock),
-                  _field(newPassCtrl, 'New Password',
-                      obscure: true, prefix: Icons.lock_outline),
+                  _field(
+                    currentPassCtrl,
+                    'Current Password',
+                    obscure: true,
+                    prefix: Icons.lock,
+                  ),
+                  _field(
+                    newPassCtrl,
+                    'New Password',
+                    obscure: true,
+                    prefix: Icons.lock_outline,
+                  ),
                   const SizedBox(height: 24),
                   SizedBox(
                     width: double.infinity,
@@ -59,29 +65,30 @@ class ForgotPasswordPage extends ConsumerWidget {
                       onPressed: loading
                           ? null
                           : () async {
-                        await ref
-                            .read(authViewModelProvider.notifier)
-                            .forgetPassword(
-                          emailCtrl.text,
-                          currentPassCtrl.text,
-                          newPassCtrl.text,
-                        );
-                        context.pop();
-                      },
+                              await ref
+                                  .read(authViewModelProvider.notifier)
+                                  .forgetPassword(
+                                    emailCtrl.text,
+                                    currentPassCtrl.text,
+                                    newPassCtrl.text,
+                                  );
+                              context.pop();
+                            },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.blueAccent,
                         shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12)),
+                          borderRadius: BorderRadius.circular(12),
+                        ),
                       ),
                       child: loading
-                          ? const CircularProgressIndicator(
-                        color: Colors.white,
-                      )
+                          ? const CircularProgressIndicator(color: Colors.white)
                           : const Text(
-                        'Update Password',
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
-                      ),
+                              'Update Password',
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
                     ),
                   ),
                 ],
@@ -93,8 +100,12 @@ class ForgotPasswordPage extends ConsumerWidget {
     );
   }
 
-  Widget _field(TextEditingController c, String label,
-      {bool obscure = false, IconData? prefix}) {
+  Widget _field(
+    TextEditingController c,
+    String label, {
+    bool obscure = false,
+    IconData? prefix,
+  }) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 16),
       child: TextField(

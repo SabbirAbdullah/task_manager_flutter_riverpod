@@ -3,10 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../viewmodel/auth_viewmodel.dart';
 import 'package:go_router/go_router.dart';
 
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../auth/viewmodel/auth_viewmodel.dart';
-import 'package:go_router/go_router.dart';
+
 
 class LoginPage extends ConsumerWidget {
   LoginPage({super.key});
@@ -25,21 +22,22 @@ class LoginPage extends ConsumerWidget {
         child: SingleChildScrollView(
           child: Card(
             elevation: 6,
-            shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
             margin: const EdgeInsets.symmetric(horizontal: 24),
             child: Padding(
-              padding:
-              const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
+              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   const Text(
                     'Welcome Back',
                     style: TextStyle(
-                        fontSize: 28,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.blueAccent),
+                      fontSize: 28,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blueAccent,
+                    ),
                   ),
                   const SizedBox(height: 24),
                   // Email Field
@@ -50,7 +48,8 @@ class LoginPage extends ConsumerWidget {
                       labelText: 'Email',
                       prefixIcon: const Icon(Icons.email),
                       border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12)),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
                     ),
                   ),
                   const SizedBox(height: 16),
@@ -62,7 +61,8 @@ class LoginPage extends ConsumerWidget {
                       labelText: 'Password',
                       prefixIcon: const Icon(Icons.lock),
                       border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12)),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
                     ),
                   ),
                   const SizedBox(height: 24),
@@ -73,25 +73,26 @@ class LoginPage extends ConsumerWidget {
                       onPressed: loading
                           ? null
                           : () async {
-                        await ref
-                            .read(authViewModelProvider.notifier)
-                            .login(emailCtrl.text, passCtrl.text);
-                        context.go('/');
-                      },
+                              await ref
+                                  .read(authViewModelProvider.notifier)
+                                  .login(emailCtrl.text, passCtrl.text);
+                              context.go('/');
+                            },
                       style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12)),
+                          borderRadius: BorderRadius.circular(12),
+                        ),
                         backgroundColor: Colors.blueAccent,
                       ),
                       child: loading
-                          ? const CircularProgressIndicator(
-                        color: Colors.white,
-                      )
+                          ? const CircularProgressIndicator(color: Colors.white)
                           : const Text(
-                        'Login',
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
-                      ),
+                              'Login',
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
                     ),
                   ),
                   const SizedBox(height: 16),
