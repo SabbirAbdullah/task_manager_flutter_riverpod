@@ -1,6 +1,6 @@
 
-import 'model/todo_model.dart';
-import 'todo_remote_datasource.dart';
+import '../model/todo_model.dart';
+import '../remote/todo_remote_datasource.dart';
 
 class TodoRepository {
   final TodoRemoteDataSource remote;

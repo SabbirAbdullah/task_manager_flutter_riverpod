@@ -2,8 +2,8 @@
 import 'package:flutter_riverpod/legacy.dart';
 import '../../../core/network/dio/dio_provider.dart';
 import '../data/model/todo_model.dart';
-import '../data/todo_repository.dart';
-import '../data/todo_remote_datasource.dart';
+import '../data/repositories/todo_repository.dart';
+import '../data/remote/todo_remote_datasource.dart';
 
 
 
