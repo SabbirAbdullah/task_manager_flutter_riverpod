@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/legacy.dart';
+import '../../../core/network/dio/dio_provider.dart';
 import '../data/auth_repository.dart';
 import '../data/auth_remote_datasource.dart';
-import '../../../../core/dio/dio_provider.dart';
 
 final authViewModelProvider = StateNotifierProvider<AuthViewModel, bool>((ref) {
   final dio = ref.read(dioProvider);

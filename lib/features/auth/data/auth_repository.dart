@@ -1,6 +1,7 @@
-import '../model/user_model.dart';
+
+import '../../../shared/di/storage/hive_service.dart';
 import 'auth_remote_datasource.dart';
-import '../../../../core/storage/hive_service.dart';
+import 'model/user_model.dart';
 
 
 class AuthRepository {

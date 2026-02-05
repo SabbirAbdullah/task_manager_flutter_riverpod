@@ -3,14 +3,8 @@ import '../../features/auth/view/forgot_password_page.dart';
 import '../../features/auth/view/login_page.dart';
 import '../../features/auth/view/register_page.dart';
 import '../../features/todo/view/todo_page.dart';
-import '../storage/hive_service.dart';
+import '../../shared/di/storage/hive_service.dart';
 
-import 'package:go_router/go_router.dart';
-import '../../features/auth/view/login_page.dart';
-import '../../features/auth/view/register_page.dart';
-import '../../features/auth/view/forgot_password_page.dart';
-import '../../features/todo/view/todo_page.dart';
-import '../storage/hive_service.dart';
 
 final router = GoRouter(
   initialLocation: '/',
